@@ -1,2 +1,3 @@
-# svelte_5_crash_course
+# Svelte 5 crash course
+
 Checking out Svelte 5
