@@ -39,7 +39,7 @@
     <div>else</div>
   {/if}
 
-  {#each itemList as item}
+  {#each itemList as item (item.name)}
     {@render listItem(item)}
   {/each}
 </main>
