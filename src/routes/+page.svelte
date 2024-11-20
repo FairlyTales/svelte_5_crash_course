@@ -41,6 +41,8 @@
 
   {#each itemList as item (item.name)}
     {@render listItem(item)}
+  {:else}
+    <p>No items</p>
   {/each}
 </main>
 
