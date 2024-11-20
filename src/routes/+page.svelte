@@ -16,6 +16,10 @@
     { name: 'item2', amount: 2 },
     { name: 'item3', amount: 3 }
   ];
+
+  function handleKeydown(event: KeyboardEvent) {
+    console.log(`pressed the ${event.key} key`);
+  }
 </script>
 
 {#snippet listItem(item: Item)}
@@ -61,6 +65,8 @@
     </div>
   {/key}
 </main>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <style>
   :global(button) {
