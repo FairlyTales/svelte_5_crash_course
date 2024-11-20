@@ -1,16 +1,30 @@
 <script lang="ts">
-  import Header from './Header.svelte';
+  import type { IFormState } from '$lib';
 
-  let name = $state('Name');
-  let formattedName = $derived(`Mr. ${name}`);
+  let form = $state<IFormState>({
+    name: '',
+    date: '',
+    step: 0,
+    error: ''
+  });
 
-  const onclick = () => {
-    console.log('clicked');
-  };
+  const handleIncrementStep = () => form.step += 1;
+
 </script>
 
-<Header {name} />
+<main>
+  <p>Step: {form.step}</p>
 
-<input type="text" bind:value={name}>
-<p>{formattedName}</p>
-<button {onclick}>button</button>
+  {#if form.step === 0 }
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" bind:value={form.name} />
+    </div>
+
+    <button onclick={handleIncrementStep}>Next</button>
+  {:else}
+    <div>else</div>
+  {/if}
+
+</main>
+
