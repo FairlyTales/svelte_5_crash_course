@@ -30,11 +30,11 @@
 </Header>
 
 <main>
-  <p class="paragraph_class">Step: {form.step}</p>
+  <p class="paragraph_class" style:color="red">Step: {form.step}</p>
 
   {#if form.step === 0 }
     <div>
-      <label for="name">Name</label>
+      <label for="name" style="color: red">Name</label>
       <input type="text" id="name" bind:value={form.name} />
     </div>
 
