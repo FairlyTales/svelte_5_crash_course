@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { IFormState, Item } from '$lib';
+  import { fade } from 'svelte/transition';
   import Header from './Header.svelte';
 
   let form = $state<IFormState>({
@@ -44,6 +45,18 @@
   {:else}
     <p>No items</p>
   {/each}
+
+  {#key form.step}
+    <div
+      transition:fade
+      onintrostart={() => (console.log('intro started'))}
+      onoutrostart={() => (console.log('outro started'))}
+      onintroend={() => (console.log('intro ended'))}
+      onoutroend={() => (console.log('outro ended'))}
+    >
+      I'm recreated when form.step is updated
+    </div>
+  {/key}
 </main>
 
 <style>
