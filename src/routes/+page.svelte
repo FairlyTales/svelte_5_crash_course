@@ -20,6 +20,10 @@
   function handleKeydown(event: KeyboardEvent) {
     console.log(`pressed the ${event.key} key`);
   }
+
+  $effect(() => {
+    console.log(form.step + ' updated');
+  });
 </script>
 
 {#snippet listItem(item: Item)}
