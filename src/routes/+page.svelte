@@ -19,7 +19,10 @@
 </script>
 
 {#snippet listItem(item: Item)}
-  <li>{item.name} - {item.amount}</li>
+  <li
+    class:class_one={item.amount === 1}
+    class={item.amount === 2 ? 'class_two' : ''}
+  >{item.name} - {item.amount}</li>
 {/snippet}
 
 <Header name="header">
@@ -27,7 +30,7 @@
 </Header>
 
 <main>
-  <p>Step: {form.step}</p>
+  <p class="paragraph_class">Step: {form.step}</p>
 
   {#if form.step === 0 }
     <div>
