@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { IFormState } from '$lib';
+  import Header from './Header.svelte';
 
   let form = $state<IFormState>({
     name: '',
@@ -11,6 +12,10 @@
   const handleIncrementStep = () => form.step += 1;
 
 </script>
+
+<Header name="header">
+  <h3>child</h3>
+</Header>
 
 <main>
   <p>Step: {form.step}</p>
