@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { IFormState, Item } from '$lib';
+  import { onDestroy, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Header from './Header.svelte';
 
@@ -21,8 +22,16 @@
     console.log(`pressed the ${event.key} key`);
   }
 
+  onMount(() => {
+    console.log('the component has mounted');
+  });
+
   $effect(() => {
     console.log(form.step + ' updated');
+  });
+
+  onDestroy(() => {
+    console.log('the component has been destroyed');
   });
 </script>
 
