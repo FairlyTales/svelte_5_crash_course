@@ -28,3 +28,26 @@
 
 </main>
 
+<style>
+  :global(button) {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  div {
+    margin-bottom: 1rem;
+  }
+
+</style>
