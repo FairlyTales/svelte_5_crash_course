@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IFormState } from '$lib';
+  import type { IFormState, Item } from '$lib';
   import Header from './Header.svelte';
 
   let form = $state<IFormState>({
@@ -10,8 +10,16 @@
   });
 
   const handleIncrementStep = () => form.step += 1;
-
+  const itemList: Item[] = [
+    { name: 'item1', amount: 1 },
+    { name: 'item2', amount: 2 },
+    { name: 'item3', amount: 3 }
+  ];
 </script>
+
+{#snippet listItem(item: Item)}
+  <li>{item.name} - {item.amount}</li>
+{/snippet}
 
 <Header name="header">
   <h3>child</h3>
@@ -31,6 +39,9 @@
     <div>else</div>
   {/if}
 
+  {#each itemList as item}
+    {@render listItem(item)}
+  {/each}
 </main>
 
 <style>
@@ -54,5 +65,4 @@
   div {
     margin-bottom: 1rem;
   }
-
 </style>

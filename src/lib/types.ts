@@ -4,3 +4,8 @@ export interface IFormState {
   step: number;
   error: string;
 }
+
+export interface Item {
+  name: string;
+  amount: number;
+}
