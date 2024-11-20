@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { globalCounter } from '$lib';
   import type { Snippet } from 'svelte';
 
   interface HeaderProps {
@@ -14,3 +15,5 @@
 <div>{name}</div>
 <div>{optionalName}</div>
 <div>{@render children()}</div>
+
+<h2>Global counter value: {globalCounter.get()}</h2>

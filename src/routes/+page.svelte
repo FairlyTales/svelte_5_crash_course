@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IFormState, Item } from '$lib';
+  import { globalCounter, type IFormState, type Item } from '$lib';
   import { onDestroy, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Header from './Header.svelte';
@@ -12,6 +12,7 @@
   });
 
   const handleIncrementStep = () => form.step += 1;
+
   const itemList: Item[] = [
     { name: 'item1', amount: 1 },
     { name: 'item2', amount: 2 },
@@ -77,6 +78,9 @@
       I'm recreated when form.step is updated
     </div>
   {/key}
+
+  <button onclick={() => globalCounter.increment()}>increment global counter</button>
+  <button onclick={() => globalCounter.decrement()}>decrement global counter</button>
 </main>
 
 <svelte:window onkeydown={handleKeydown} />
