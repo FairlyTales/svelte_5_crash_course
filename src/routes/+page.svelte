@@ -1,8 +1,11 @@
 <script lang="ts">
-  import { globalCounter, type IFormState, type Item } from '$lib';
+  import { getGlobalCounterState, type IFormState, type Item, setGlobalCounterState } from '$lib';
   import { onDestroy, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Header from './Header.svelte';
+
+  setGlobalCounterState();
+  const globalCounterState = getGlobalCounterState();
 
   let form = $state<IFormState>({
     name: '',
@@ -79,8 +82,8 @@
     </div>
   {/key}
 
-  <button onclick={() => globalCounter.increment()}>increment global counter</button>
-  <button onclick={() => globalCounter.decrement()}>decrement global counter</button>
+  <button onclick={() => globalCounterState.increment()}>increment global counter</button>
+  <button onclick={() => globalCounterState.decrement()}>decrement global counter</button>
 </main>
 
 <svelte:window onkeydown={handleKeydown} />
